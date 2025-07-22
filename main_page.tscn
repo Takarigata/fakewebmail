@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnnm6wwdr852d"]
+
+[ext_resource type="Script" uid="uid://ckcpfsgfkey14" path="res://script/launch_game.gd" id="1_7yini"]
+
+[node name="MainPage" type="Control"]
+layout_mode = 3
+anchor_right = 0.845
+anchor_bottom = 0.614
+offset_right = 186.0
+offset_bottom = 283.71
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="root" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7yini")
+
+[node name="TextEdit" type="TextEdit" parent="root"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 211.0
+offset_right = 948.0
+offset_bottom = 361.0
+text = "prout caca"
+
+[node name="Button" type="Button" parent="root"]
+layout_mode = 0
+offset_left = 479.0
+offset_top = 460.0
+offset_right = 705.0
+offset_bottom = 607.0
+text = "launch calc"
+
+[connection signal="text_changed" from="root/TextEdit" to="root" method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="root/Button" to="root" method="_on_launch_button_pressed"]
