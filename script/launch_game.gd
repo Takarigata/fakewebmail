@@ -11,3 +11,7 @@ func _on_launch_button_pressed():
 		print("Successfully launched process with PID: ", pid)
 	else:
 		print("Failed to launch executable")
+
+
+func _on_button_quit_pressed() -> void:
+	get_tree().quit()

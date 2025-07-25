@@ -1,13 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnnm6wwdr852d"]
+[gd_scene load_steps=16 format=3 uid="uid://dnnm6wwdr852d"]
 
 [ext_resource type="Script" uid="uid://ckcpfsgfkey14" path="res://script/launch_game.gd" id="1_7yini"]
+[ext_resource type="Texture2D" uid="uid://dpoouikdup4ce" path="res://assets/template/Empty_Mail.png" id="2_j0gr7"]
+[ext_resource type="Script" uid="uid://bvlpvb7cic20k" path="res://script/mail_button.gd" id="3_5mpow"]
+[ext_resource type="FontFile" uid="uid://bk417gknsq7vt" path="res://assets/font/ms-sans-serif-1.otf" id="3_q3btt"]
+[ext_resource type="Texture2D" uid="uid://cvlq0b7mkdy0l" path="res://assets/test_image/Noroi-the-woods.jpg" id="5_75dro"]
+[ext_resource type="Script" uid="uid://dc8jch0eiiokc" path="res://script/drag_script.gd" id="6_pbtym"]
+
+[sub_resource type="Theme" id="Theme_q3btt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbtym"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btl6j"]
+bg_color = Color(0.77084, 0.770839, 0.770839, 0.811765)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q3b50"]
+font = ExtResource("3_q3btt")
+font_size = 13
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_anrpf"]
+font = ExtResource("3_q3btt")
+font_size = 11
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pbtym"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5mpow"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75dro"]
+bg_color = Color(0.603922, 0.603922, 0.603922, 0.470588)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5mpow"]
+font = ExtResource("3_q3btt")
+font_size = 14
+font_color = Color(0, 0, 0, 1)
 
 [node name="MainPage" type="Control"]
 layout_mode = 3
-anchor_right = 0.845
-anchor_bottom = 0.614
-offset_right = 186.0
-offset_bottom = 283.71
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -21,6 +55,7 @@ grow_vertical = 2
 script = ExtResource("1_7yini")
 
 [node name="TextEdit" type="TextEdit" parent="root"]
+visible = false
 layout_mode = 0
 offset_left = 149.0
 offset_top = 211.0
@@ -29,6 +64,7 @@ offset_bottom = 361.0
 text = "prout caca"
 
 [node name="Button" type="Button" parent="root"]
+visible = false
 layout_mode = 0
 offset_left = 479.0
 offset_top = 460.0
@@ -36,5 +72,104 @@ offset_right = 705.0
 offset_bottom = 607.0
 text = "launch calc"
 
+[node name="quit_button" type="Button" parent="root"]
+layout_mode = 0
+offset_left = 743.0
+offset_top = 4.0
+offset_right = 769.0
+offset_bottom = 23.0
+theme = SubResource("Theme_q3btt")
+
+[node name="TextureRect" type="TextureRect" parent="root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j0gr7")
+expand_mode = 2
+
+[node name="Mail1" type="Panel" parent="root"]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 240.0
+offset_right = 749.0
+offset_bottom = 558.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pbtym")
+
+[node name="Panel" type="Panel" parent="root/Mail1"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 15.0
+offset_right = 416.0
+offset_bottom = 58.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_btl6j")
+
+[node name="main_label" type="Label" parent="root/Mail1"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 20.0
+offset_right = 99.0
+offset_bottom = 43.0
+text = "To: Shizuka <s.shizuka@fgdi.jp>
+Subject: Weird Photo in Amano files"
+label_settings = SubResource("LabelSettings_q3b50")
+
+[node name="mail_text" type="Label" parent="root/Mail1"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 88.0
+offset_right = 646.0
+offset_bottom = 127.0
+text = "I found this weird picture in Amano's HDD take a look at it please it's maybe connected"
+label_settings = SubResource("LabelSettings_anrpf")
+
+[node name="Noroi-the-woods" type="Sprite2D" parent="root/Mail1"]
+position = Vector2(225, 215)
+scale = Vector2(0.684615, 0.684615)
+texture = ExtResource("5_75dro")
+
+[node name="Move_Bar" type="Panel" parent="root"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -383.0
+offset_top = -618.0
+offset_right = 328.0
+offset_bottom = -596.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_pbtym")
+script = ExtResource("6_pbtym")
+
+[node name="mail_open" type="Button" parent="root" node_paths=PackedStringArray("mail_node")]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 100.0
+offset_right = 749.0
+offset_bottom = 134.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5mpow")
+theme_override_styles/normal = SubResource("StyleBoxFlat_75dro")
+script = ExtResource("3_5mpow")
+mail_node = NodePath("../Mail1")
+
+[node name="Label" type="Label" parent="root/mail_open"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Amano Weird Photo"
+label_settings = SubResource("LabelSettings_5mpow")
+vertical_alignment = 1
+
 [connection signal="text_changed" from="root/TextEdit" to="root" method="_on_text_edit_text_changed"]
 [connection signal="pressed" from="root/Button" to="root" method="_on_launch_button_pressed"]
+[connection signal="pressed" from="root/quit_button" to="root" method="_on_button_quit_pressed"]

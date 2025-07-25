@@ -20,8 +20,8 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1200
-window/size/viewport_height=735
+window/size/viewport_width=772
+window/size/viewport_height=619
 window/size/resizable=false
 window/size/borderless=true
 
