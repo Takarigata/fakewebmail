@@ -72,14 +72,6 @@ offset_right = 705.0
 offset_bottom = 607.0
 text = "launch calc"
 
-[node name="quit_button" type="Button" parent="root"]
-layout_mode = 0
-offset_left = 743.0
-offset_top = 4.0
-offset_right = 769.0
-offset_bottom = 23.0
-theme = SubResource("Theme_q3btt")
-
 [node name="TextureRect" type="TextureRect" parent="root"]
 layout_mode = 1
 anchors_preset = 15
@@ -89,6 +81,14 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_j0gr7")
 expand_mode = 2
+
+[node name="quit_button" type="Button" parent="root"]
+layout_mode = 0
+offset_left = 743.0
+offset_top = 4.0
+offset_right = 769.0
+offset_bottom = 23.0
+theme = SubResource("Theme_q3btt")
 
 [node name="Mail1" type="Panel" parent="root"]
 layout_mode = 0
